@@ -16,3 +16,17 @@ jobs:
           java-version: '21'
       - name: compile application
         run: mvn -f pom.xml clean compile
+
+  build-job:
+    needs: compile-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - name: build application
+        run: mvn -f pom.xml clean package
