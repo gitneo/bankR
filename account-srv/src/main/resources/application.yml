@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: account-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/account-service
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: manchester81
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+server:
+  port: 6010
