@@ -1,0 +1,17 @@
+name: Pipeline-workflow
+on:
+  push:
+    - ms/account-srv
+jobs:
+  compile-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - name: compile application
+        run: mvn -f pom.xml clean compile
